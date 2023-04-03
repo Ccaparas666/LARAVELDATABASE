@@ -9,15 +9,17 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">               
-                    <h6>LIST OF SUBJECTS</h6>
+                <div class="flex justify-center">
+                    <h1>LIST OF SUBJECTS</h1>
+                </div>
                     <table class = "border-separate border-spacing-5">
                         <thead>
                             <tr>
-                                <th>Subject Code</th>
-                                <th>Description</th>
-                                <th>Units</th>
-                                <th>Schedule</th>
-                                <th>Options</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Subject Code</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Description</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Units</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Schedule</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Options</th>
                             </tr>
                         </thead>
                         <tbody>

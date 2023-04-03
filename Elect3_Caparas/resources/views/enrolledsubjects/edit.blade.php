@@ -41,7 +41,8 @@
                     <input type="text" name="xschedule" value="{{$ensubjects->schedule}}"/>
                     </div>
 </div>
-             <button type ="submit"> Submit Info </button>
+             <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
+             <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('enrolledsubjects')}}"> Back </a>
                    </form>
                    @endforeach
                 </div>

@@ -49,9 +49,9 @@
                                 <input type="text" name="xnotes" value="{{old('xnotes')}}" />
                             </div>
                         </div><br>
-                        <button type="submit" class="px-4 py-2 text-sm font-medium text-white bg-indigo-600 rounded-md hover:bg-indigo-500">Add</button><br>
+                        <button type="submit" class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded">Add</button>
 
-                        <a class="mt-4 float-left bg-blue-200 text-black font-bold py-2 px-4 rounded" href="{{route('balances')}}"> Back </a>
+                        <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('balances')}}"> Back </a>
                     </form><br>
                 </div><br>
             </div>

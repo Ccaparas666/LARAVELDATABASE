@@ -70,6 +70,7 @@
                                 </div>
                             </div>
                             <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
+                            <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('students')}}"> Back </a>
                         </form>
                     @endforeach
                 </div>

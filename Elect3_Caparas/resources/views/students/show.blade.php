@@ -9,16 +9,20 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                    <h6>LIST OF STUDENTS</h6>
+                <div class="flex justify-center">
+                <div class="flex justify-center">
+                    <h1>LIST OF STUDENTS</h1>
+                </div>
+                </div>
                     <table class = "border-separate border-spacing-5">
                         <thead>
                             <tr>
-                                <th>ID No.</th>
-                                <th>Full Name</th>
-                                <th>Course and year</th>
-                                <th>Date</th>
-                                <th>Gender</th>
-                                <th>Options</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">ID No.</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Full Name</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Course and year</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Date</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Gender</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Options</th>
                             </tr>
                         </thead>
                         <tbody>

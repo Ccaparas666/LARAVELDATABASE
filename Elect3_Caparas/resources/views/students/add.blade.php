@@ -78,6 +78,7 @@
                             </div>
                         </div>
                         <input class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type="submit" value="Submit info"/>
+                        <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('students')}}"> Back </a>
                     </form>
                 </div>
             </div>

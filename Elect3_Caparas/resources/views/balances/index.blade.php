@@ -10,49 +10,52 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex justify-center">
-                        <a href="{{ route('add-balance')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Add Student Balances</a>
+                        <a href="{{ route('add-balance')}}" class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded">Add Student Balances</a>
                     </div>
-                    <h6 class="mt-4 text-2xl font-bold">Student Balances</h6><br>
-                    <div class="overflow-x-auto">
+                    <br><br>
+                    <div class="flex justify-center">
+                        <h1>LIST OF BALANCES</h1>
+                    </div>
+                    <br><br>
                         <table class="table-auto border-separate border-spacing-5">
                             <thead>
                                 <tr>
-                                    <th class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded">ID No.</th>
-                                    <th class="border border-gray-500 px-4 py-2">Student Name</th>
-                                    <th class="border border-gray-500 px-4 py-2">Amount Due</th>
-                                    <th class="border border-gray-500 px-4 py-2">Total Balance</th>
-                                    <th class="border border-gray-500 px-4 py-2">Notes</th>
-                                    <th class="border border-gray-500 px-4 py-2">View</th>
-                                    <th class="border border-gray-500 px-4 py-2">Edit</th>
-                                    <th class="border border-gray-500 px-4 py-2">Delete</th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">ID No.</th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Student Name</th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Amount Due</th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Total Balance</th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Notes</th>
+                                    <th></th>
+                                    <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">OPTIONS</th>
+                                    <th></th>
                                 </tr>
                             </thead>
                             <tbody>
                                 @foreach($balances as $bal)
                                 <tr>
-                                    <td class="border border-gray-500 px-4 py-2">{{$bal->idNo}}</td>
-                                    <td class="border border-gray-500 px-4 py-2">{{$bal->lastName}}, {{$bal->firstName}} {{$bal->middleName}} {{$bal->suffix}}</td>
-                                    <td class="border border-gray-500 px-4 py-2">{{number_format($bal->amountDue,2)}}</td>
-                                    <td class="border border-gray-500 px-4 py-2">{{number_format($bal->totalBalance,2)}}</td>
-                                    <td class="border border-gray-500 px-4 py-2">{{$bal->notes}}</td>
-                                    <td class="border border-gray-500 px-4 py-2">
-                                        <a href="{{route('balances-show', ['BalanceNo' => $bal->bNo] )}}" class="bg-teal-500 hover:bg-teal-700 text-white font-bold py-2 px-4 rounded mr-2">View</a>
+                                    <td>{{$bal->idNo}}</td>
+                                    <td>{{$bal->lastName}}, {{$bal->firstName}} {{$bal->middleName}} {{$bal->suffix}}</td>
+                                    <td>{{number_format($bal->amountDue,2)}}</td>
+                                    <td>{{number_format($bal->totalBalance,2)}}</td>
+                                    <td>{{$bal->notes}}</td>
+                                    <td>
+                                        <a href="{{route('balances-show', ['BalanceNo' => $bal->bNo] )}}" class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded">View</a>
                                     </td>
-                                    <td class="border border-gray-500 px-4 py-2">
-                                        <a href="{{route('balances-edit', ['BalanceNo' => $bal->bNo])}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mr-2">Edit</a>
+                                    <td>
+                                        <a href="{{route('balances-edit', ['BalanceNo' => $bal->bNo])}}" class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded">Edit</a>
                                     </td>
-                                    <td class="border border-gray-500 px-4 py-2">
+                                    <td>
                                         <form method="POST" action="{{route('balances-delete', ['BalanceNo' => $bal->bNo])}}" onclick="return confirm('Are you sure you want to delete this record?')">
                                             @csrf
                                             @method('delete')
-                                            <button type="submit" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">Delete</button>
+                                            <button type="submit" class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded">Delete</button>
                                         </form>
                                     </td>
                                 </tr>
                                 @endforeach
                             </tbody>
                         </table>
-                    </div>
+                    
                 </div>
             </div>
         </div>
