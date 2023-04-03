@@ -1,0 +1,152 @@
+<?php
+
+use App\Http\Controllers\ProfileController;
+use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\studentInfoController;
+use App\Http\Controllers\EnrollSubjectsController;
+use App\Http\Controllers\GradesController;
+use App\Http\Controllers\BalanceController;
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
+|
+*/
+
+Route::get('/', function () {
+    return view('welcome');
+});
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->middleware(['auth', 'verified'])->name('dashboard');
+
+
+
+////////////////////////// FOR STUDENT INFORMATION ////////////////////////// 
+//STUDENT NAVIGATIONS
+Route::get('/students', [studentInfoController::class, 'index']) 
+   ->middleware(['auth', 'verified'])
+   ->name('students');
+
+//GO TO ADD STUDENT FORM
+Route::get('/students/add', function () {
+    return view('students.add');
+})->middleware(['auth', 'verified'])->name('add-student');
+
+// TO VIEW STUDENTS DATA
+Route::get('/students/{stuno}', [studentInfoController::class, 'show']) 
+->middleware(['auth', 'verified'])
+->name('students-show');
+
+// ADDING INFO FUNCTIONS
+Route::post('/students/add',[studentInfoController::class, 'store'] )
+->middleware(['auth', 'verified'])
+->name('student-store');
+
+// EDIT INFO FUNCTIONS
+Route::get('/students/edit/{stuno}', [studentInfoController::class, 'edit']) 
+->middleware(['auth', 'verified'])
+->name('students-edit');
+
+// UPDATE INFO FUNCTIONS
+Route::patch('/students/update/{stuno}', [StudentInfoController::class, 'update']) 
+->middleware(['auth', 'verified'])
+->name('students-update');
+
+// DELETE INFO FUNCTIONS
+Route::delete('/students/delete/{stuno}', [StudentInfoController::class, 'destroy']) 
+->middleware(['auth', 'verified'])
+->name('students-delete');
+////////////////////////// FOR STUDENT INFORMATION ////////////////////////// 
+
+
+
+////////////////////////// FOR ENROLLED SUBJECTS ////////////////////////// 
+Route::get('/enrolledsubjects', [EnrollSubjectsController::class, 'index']) 
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects');
+
+//GO TO ADD ENROLLED SUBJECTS FORM
+Route::get('/enrolledsubjects/add', function () {
+    return view('enrolledsubjects.add');
+})->middleware(['auth', 'verified'])->name('add-subject');
+
+// ADDING SUBJECT INFO FUNCTIONS
+Route::post('/enrolledsubjects/add',[EnrollSubjectsController::class, 'store'] )
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects-store');
+
+// TO VIEW SUBJECTS DATA
+Route::get('/enrolledsubjects/{Subjects}', [EnrollSubjectsController::class, 'show']) 
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects-show');
+
+// EDIT SUBJECT INFO FUNCTIONS
+Route::get('/enrolledsubjects/edit/{Subjects}', [EnrollSubjectsController::class, 'edit']) 
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects-edit');
+
+// UPDATE SUBJECT INFO FUNCTIONS
+Route::patch('/enrolledsubjects/update/{Subjects}', [EnrollSubjectsController::class, 'update']) 
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects-update');
+
+// DELETE SUBJECT INFO FUNCTIONS
+Route::delete('/enrolledsubjects/delete/{Subjects}', [EnrollSubjectsController::class, 'destroy']) 
+->middleware(['auth', 'verified'])
+->name('enrolledsubjects-delete');
+////////////////////////// FOR ENROLLED SUBJECTS ////////////////////////// 
+
+
+
+////////////////////////// FOR GRADES ////////////////////////// 
+Route::get('/grades', [GradesController::class, 'index']) 
+->middleware(['auth', 'verified'])
+->name('grades');
+////////////////////////// FOR GRADES ////////////////////////// 
+
+
+
+////////////////////////// FOR BALANCE ////////////////////////// 
+Route::get('/balances', [BalanceController::class, 'index']) 
+->middleware(['auth', 'verified'])
+->name('balances');
+
+Route::get('/balances/add', [BalanceController::class, 'getStudentInfo'])
+->middleware(['auth', 'verified'])
+->name('balances-add');
+
+Route::post('/balances/store', [BalanceController::class, 'store'])
+->middleware(['auth', 'verified'])
+->name('balances-store');
+
+Route::get('/balances/{BalanceNo}', [BalanceController::class, 'show'])
+->middleware(['auth', 'verified'])
+->name('balances-show');
+
+Route::delete('/balances/delete/{BalanceNo}', [BalanceController::class, 'destroy'])
+->middleware(['auth', 'verified'])
+->name('balances-delete');
+
+Route::get('/balances/edit/{BalanceNo}', [BalanceController::class, 'edit'])
+->middleware(['auth', 'verified'])
+->name('balances-edit');
+
+Route::patch('/balances/update/{BalanceNo}', [BalanceController::class, 'update'])
+->middleware(['auth', 'verified'])
+->name('balances-update');
+////////////////////////// FOR BALANCE ////////////////////////// 
+
+
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
