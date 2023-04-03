@@ -86,7 +86,7 @@ class BalanceController extends Controller
     }
 
     public function getStudentInfo(){
-        $studentinfo = studentinfo::all();
-        return view('balances.add', compact('studentinfo'));
+        $studentinfos = studentinfo::all();
+        return view('balances.add', compact('studentinfos'));
     }
 }

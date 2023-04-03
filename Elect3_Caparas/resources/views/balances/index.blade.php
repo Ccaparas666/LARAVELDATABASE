@@ -10,7 +10,7 @@
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
                     <div class="flex justify-center">
-                        <a href="{{ route('balances-add')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Add Student Balances</a>
+                        <a href="{{ route('add-balance')}}" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mb-4">Add Student Balances</a>
                     </div>
                     <h6 class="mt-4 text-2xl font-bold">Student Balances</h6><br>
                     <div class="overflow-x-auto">

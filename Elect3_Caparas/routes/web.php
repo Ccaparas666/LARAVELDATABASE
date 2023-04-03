@@ -119,7 +119,7 @@ Route::get('/balances', [BalanceController::class, 'index'])
 
 Route::get('/balances/add', [BalanceController::class, 'getStudentInfo'])
 ->middleware(['auth', 'verified'])
-->name('balances-add');
+->name('add-balance');
 
 Route::post('/balances/store', [BalanceController::class, 'store'])
 ->middleware(['auth', 'verified'])

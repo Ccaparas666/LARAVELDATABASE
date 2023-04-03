@@ -26,7 +26,7 @@
                         <div class="flex-items-center">
                                 <label for="Student Select" class="font-bold">Select Student</label>
                                 <select name="xsno" class="border border-gray-300 px-2 py-1 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-400 focus:border-transparent">
-                                    @foreach ($studentinfo as $stuinfo)
+                                    @foreach ($studentinfos as $stuinfo)
                                 <option value="{{$stuinfo->sno}}">{{$stuinfo->idNo}} - {{$stuinfo->lastName}}, {{$stuinfo->firstName}} {{$stuinfo->middleName}} {{$stuinfo->suffix}}</option>
                                     @endforeach
                             </select>
