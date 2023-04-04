@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Grades;
+use App\Models\studentInfo;
+use App\Models\enrolledsubjects;
 class GradesController extends Controller
 {
     /**
@@ -30,6 +32,17 @@ class GradesController extends Controller
     public function store(Request $request)
     {
         //
+
+        $grades = new Grades();
+        $grades->sno = $request->xsno;
+        $grades->esNo = $request->xesNo;
+        $grades->prelim = $request->xprelim;
+        $grades->midterm = $request->xmidterm;
+        $grades->final = $request->xfinal;
+        $grades->remarks = $request->xremarks;
+        $grades->final = $request->xfinal;
+        $grades->save();
+        return redirect()->route('grades');
     }
 
     /**
@@ -63,4 +76,10 @@ class GradesController extends Controller
     {
         //
     }
+    public function getSubjectInfo(){
+        $enrolledsubjects = enrolledsubjects::all();
+        $test = studentinfo::all();
+        return view('grades.add', compact('enrolledsubjects', 'test'));
+    }
+
 }

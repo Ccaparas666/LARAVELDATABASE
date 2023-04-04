@@ -108,6 +108,18 @@ Route::delete('/enrolledsubjects/delete/{Subjects}', [EnrollSubjectsController::
 Route::get('/grades', [GradesController::class, 'index']) 
 ->middleware(['auth', 'verified'])
 ->name('grades');
+
+Route::get('/balances/add', [BalancesController::class, 'getStudentInfo'])
+->middleware(['auth', 'verified'])
+->name('add-grades');
+
+Route::get('/grades/add', [GradesController::class, 'getSubjectInfo'])
+->middleware(['auth', 'verified'])
+->name('add-grades');
+
+Route::post('/grades/add', [GradesController::class, 'store'])
+->middleware(['auth', 'verified'])
+->name('grades-store');
 ////////////////////////// FOR GRADES ////////////////////////// 
 
 
@@ -117,26 +129,27 @@ Route::get('/balances', [BalanceController::class, 'index'])
 ->middleware(['auth', 'verified'])
 ->name('balances');
 
+//GET THE STUDENT INFO -- ADD BALANCE FUNCTION
 Route::get('/balances/add', [BalanceController::class, 'getStudentInfo'])
 ->middleware(['auth', 'verified'])
 ->name('add-balance');
-
+//ADD BALANCE FUNCTION
 Route::post('/balances/store', [BalanceController::class, 'store'])
 ->middleware(['auth', 'verified'])
 ->name('balances-store');
-
+//VIEW BALANCE FUNCTION
 Route::get('/balances/{BalanceNo}', [BalanceController::class, 'show'])
 ->middleware(['auth', 'verified'])
 ->name('balances-show');
-
+//DELETE FUNCTION
 Route::delete('/balances/delete/{BalanceNo}', [BalanceController::class, 'destroy'])
 ->middleware(['auth', 'verified'])
 ->name('balances-delete');
-
+// EDIT BALANCE FUNCTION
 Route::get('/balances/edit/{BalanceNo}', [BalanceController::class, 'edit'])
 ->middleware(['auth', 'verified'])
 ->name('balances-edit');
-
+// UPDATE BALANCE FUNCTION
 Route::patch('/balances/update/{BalanceNo}', [BalanceController::class, 'update'])
 ->middleware(['auth', 'verified'])
 ->name('balances-update');

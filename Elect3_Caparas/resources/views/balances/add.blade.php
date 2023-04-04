@@ -52,8 +52,8 @@
                         <button type="submit" class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded">Add</button>
 
                         <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('balances')}}"> Back </a>
-                    </form><br>
-                </div><br>
+                    </form>
+                </div>
             </div>
         </div>
     </div>
