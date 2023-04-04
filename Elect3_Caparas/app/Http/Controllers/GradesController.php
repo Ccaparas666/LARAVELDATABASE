@@ -14,8 +14,10 @@ class GradesController extends Controller
     public function index()
     {
         //
-        $grades = Grades:: all();
-        return view('grades.index' , compact('grades'));
+
+
+        $grades = Grades:: join('studentinfo', 'grades.sno', '=', 'studentinfo.sno')->get();
+        return view('grades.index', compact('grades'));
     }
 
     /**
@@ -51,6 +53,8 @@ class GradesController extends Controller
     public function show(string $id)
     {
         //
+        $grades = Grades::where('gNo', $id)->get();
+        return view('grades.show', compact('grades'));
     }
 
     /**
@@ -59,6 +63,8 @@ class GradesController extends Controller
     public function edit(string $id)
     {
         //
+        $grades = Grades::where('gNo', $id)->get();
+        return view('grades.edit', compact('grades'));
     }
 
     /**
@@ -67,6 +73,15 @@ class GradesController extends Controller
     public function update(Request $request, string $id)
     {
         //
+        $grades = Grades::where('gNo', $id)
+        ->update(
+            [
+            'prelim'=> $request->xprelim,
+            'midterm'=> $request->xmidterm,
+            'final'=> $request->xfinals,
+            'remarks'=>$request->xremarks,
+            ]);
+        return redirect()->route('grades');
     }
 
     /**
@@ -75,6 +90,9 @@ class GradesController extends Controller
     public function destroy(string $id)
     {
         //
+        $Grades = Grades::where('gNo', $id);
+        $Grades->delete();
+        return redirect()->route('grades');
     }
     public function getSubjectInfo(){
         $enrolledsubjects = enrolledsubjects::all();

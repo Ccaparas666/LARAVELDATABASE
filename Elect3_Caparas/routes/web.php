@@ -120,6 +120,23 @@ Route::get('/grades/add', [GradesController::class, 'getSubjectInfo'])
 Route::post('/grades/add', [GradesController::class, 'store'])
 ->middleware(['auth', 'verified'])
 ->name('grades-store');
+
+// TO VIEW GRADES DATA
+Route::get('/grades/{Grade}', [GradesController::class, 'show']) 
+->middleware(['auth', 'verified'])
+->name('grades-show');
+
+Route::get('/grades/edit/{Grade}', [GradesController::class, 'edit'])
+->middleware(['auth', 'verified'])
+->name('grades-edit');
+
+Route::patch('/grades/update/{Grade}', [GradesController::class, 'update'])
+->middleware(['auth', 'verified'])
+->name('grades-update');
+
+Route::delete('/grades/delete/{Grade}', [GradesController::class, 'destroy'])
+->middleware(['auth', 'verified'])
+->name('grades-delete');
 ////////////////////////// FOR GRADES ////////////////////////// 
 
 

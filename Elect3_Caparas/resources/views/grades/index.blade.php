@@ -22,7 +22,7 @@
                         <thead>
                             <tr>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Enrolled Subjects Number</th>
-                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Student Number</th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Student Name</th>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Prelim</th>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Midterm</th>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Final</th>
@@ -36,11 +36,24 @@
                             @foreach ($grades as $gradesinfo)
                                 <tr>
                                     <td>{{$gradesinfo->esNo }}</td>
-                                    <td>{{$gradesinfo->sNo }} </td>
+                                    <td>{{$gradesinfo->lastName}}, {{$gradesinfo->firstName}} {{$gradesinfo->middleName}} {{$gradesinfo->suffix}} </td>
                                     <td>{{$gradesinfo->prelim }}</td>
                                     <td>{{$gradesinfo->midterm }}</td>
                                     <td>{{$gradesinfo->final }}</td>
-                                    <td>{{$gradesinfo->remarks}}</td>                                                                                                          
+                                    <td>{{$gradesinfo->remarks}}</td>
+                                    <td>                                    
+                                        <a class="mt-4 bg-teal-200 text-black font-bold py-2 px-4 rounded" href= "{{route('grades-show', ['Grade' => $gradesinfo->gNo]) }}">View</a>
+                                    </td> 
+                                    <td>
+                                        <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href= "{{route('grades-edit', ['Grade' => $gradesinfo->gNo]) }}">Edit</a>
+                                    </td>
+                                    <td>
+                                        <form method="POST" action = "{{ route('grades-delete', ['Grade' => $gradesinfo->gNo]) }} }}" onclick="return confirm('Are you sure you want to delete this record?')"> 
+                                            @csrf
+                                            @method('delete')
+                                        <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type="submit">Delete</a>
+                                        </form> 
+                                    </td>                                                                                                         
                                 </tr>
                             @endforeach
                         </tbody>

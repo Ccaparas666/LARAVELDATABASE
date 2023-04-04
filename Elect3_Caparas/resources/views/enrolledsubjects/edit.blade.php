@@ -9,41 +9,45 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
                 <div class="p-6 text-gray-900 dark:text-gray-100">
-                   <h6>Errors Encountered</h6>
+                    <h6>Errors Encountered</h6>
                     @if($errors)
-                       <ul>
-                          @foreach($errors->all() as $error)
-                         <li>{{$error}}</li>
+                    <ul>
+                        @foreach($errors->all() as $error)
+                        <li>{{$error}}</li>
                     @endforeach
-                         </ul>
-                         @endif
-                         @foreach($enrolledsubjects as $ensubjects)
+                        </ul>
+                        @endif
+                        @foreach($enrolledsubjects as $ensubjects)
                     <form method = "POST" action="{{ route('enrolledsubjects-update',['Subjects' => $ensubjects->esNo]) }}">
-                        @csrf
-                        @method('patch')
-                       <div class="flex-items-center"><label for="Subject Code">Subject Code</label>
-                    <div>
-                        <input type="text" name="xsubjectCode" value="{{$ensubjects->subjectCode}}"/>
+                    @csrf
+                    @method('patch')
+                    <div class="flex-items-center">
+                            <label for="Subject Code">Subject Code</label>
+                        <div>
+                            <input type="text" name="xsubjectCode" value="{{$ensubjects->subjectCode}}"/>
+                        </div>
                     </div>
-                </div>
-                    <div class="flex-items-center"><label for="Description">Description</label>
-                    <div>
-                    <input type="text" name="xdescription" value="{{$ensubjects->description}}"/>
+                    <div class="flex-items-center">
+                            <label for="Description">Description</label>
+                        <div>
+                            <input type="text" name="xdescription" value="{{$ensubjects->description}}"/>
+                        </div>
                     </div>
-</div>
-                       <div class="flex-items-center"><label for="Units">Units</label>
-                    <div>
-                    <input type="text" name="xunits" value="{{$ensubjects->units}}"/>
+                    <div class="flex-items-center">
+                            <label for="Units">Units</label>
+                        <div>
+                            <input type="text" name="xunits" value="{{$ensubjects->units}}"/>
+                        </div>
                     </div>
-</div>
-                       <div class="flex-items-center"><label for="Schedule">Schedule</label>
-                    <div>
-                    <input type="text" name="xschedule" value="{{$ensubjects->schedule}}"/>
+                    <div class="flex-items-center">
+                            <label for="Schedule">Schedule</label>
+                        <div>
+                            <input type="text" name="xschedule" value="{{$ensubjects->schedule}}"/>
+                        </div>
                     </div>
-</div>
-             <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
-             <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('enrolledsubjects')}}"> Back </a>
-                   </form>
+                    <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
+                    <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('enrolledsubjects')}}"> Back </a>
+                    </form>
                    @endforeach
                 </div>
             </div>

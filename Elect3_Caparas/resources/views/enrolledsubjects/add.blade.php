@@ -18,30 +18,34 @@
                          </ul>
                     @endif
                 <form method = "POST" action="{{ route('enrolledsubjects-store') }}">
-                        @csrf
-                       <div class="flex-items-center"><label for="Subject Code">Subject Code</label>
-                    <div>
-                        <input type="text" name="xsubjectCode" value="{{old('xsubjectCode')}}"/>
+                                                        @csrf
+                    <div class="flex-items-center">
+                            <label for="Subject Code">Subject Code</label>
+                        <div>
+                            <input type="text" name="xsubjectCode" value="{{old('xsubjectCode')}}"/>
+                        </div>
                     </div>
-                </div>
-                    <div class="flex-items-center"><label for="Description">Description</label>
-                    <div>
-                    <input type="text" name="xdescription" value="{{old('xdescription')}}"/>
+                    <div class="flex-items-center">
+                            <label for="Description">Description</label>
+                        <div>
+                            <input type="text" name="xdescription" value="{{old('xdescription')}}"/>
+                        </div>
                     </div>
-</div>
-                       <div class="flex-items-center"><label for="Units">Units</label>
-                    <div>
-                    <input type="text" name="xunits" value="{{old('xunits')}}"/>
+                    <div class="flex-items-center">
+                            <label for="Units">Units</label>
+                        <div>
+                            <input type="text" name="xunits" value="{{old('xunits')}}"/>
+                        </div>
                     </div>
-</div>
-                       <div class="flex-items-center"><label for="Schedule">Schedule</label>
-                    <div>
-                    <input type="text" name="xschedule" value="{{old('xschedule')}}"/>
+                    <div class="flex-items-center">
+                            <label for="Schedule">Schedule</label>
+                        <div>               
+                            <input type="text" name="xschedule" value="{{old('xschedule')}}"/>
+                        </div>
                     </div>
-</div>
-             <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
-             <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('enrolledsubjects')}}"> Back </a>
-                   </form>
+                    <button class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" type ="submit"> Submit Info </button>
+                    <a class="mt-4 bg-teal-200 hover:bg-teal-500 text-black font-bold py-2 px-4 rounded" href="{{route('enrolledsubjects')}}"> Back </a>
+                </form>
                 </div>
             </div>
         </div>

@@ -24,10 +24,8 @@
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Prelim</th>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Midterm</th>
                                 <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Final</th>
-                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Remarks</th>
-                                <th></th>
-                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Options</th>
-                                <th></th>
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Remarks</th>                        
+                                <th class="bg-blue-200 text-black font-bold py-2 px-4 rounded">Options</th>                           
                             </tr>
                         </thead>
                         <tbody>
